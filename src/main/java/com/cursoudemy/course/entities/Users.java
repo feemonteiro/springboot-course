@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //Nome da classe alterada pois User é uma palavra reservada
 @Entity
 @Table(name = "tb_user")
@@ -27,6 +29,7 @@ public class Users implements Serializable{
 	private String phone;
 	private String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 	
@@ -35,6 +38,7 @@ public class Users implements Serializable{
 	}
 
 	public Users(Long id, String name, String email, String phone, String password) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
