@@ -1,5 +1,6 @@
 package com.cursoudemy.course.entities.pk;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Embeddable;
@@ -10,8 +11,9 @@ import com.cursoudemy.course.entities.Order;
 import com.cursoudemy.course.entities.Product;
 
 @Embeddable
-public class OrderItemPK {
+public class OrderItemPK implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Order order;
